@@ -21,7 +21,13 @@ function App() {
 								</h6>
 							</div>
 						</div>
-						<video autoPlay muted loop src={IntroVid} />
+						<video
+							autoPlay
+							muted
+							loop
+							src="https://drive.google.com/uc?id=1LjSRsTLaPdiSVnmhVOQ88Z58S7EbqH6x&export=download"
+						/>
+						// {IntroVid}
 					</div>
 				</Slide>
 
