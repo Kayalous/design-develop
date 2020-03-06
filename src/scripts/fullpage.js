@@ -1,5 +1,5 @@
 let body = document.querySelector("body");
-window.onload = function() {
+window.onload = function () {
 	let slides = document.querySelectorAll(".slide");
 	let currentSlide = document.querySelector(".slide.active");
 	let fullpageContainer = document.querySelector("#fullpage");
@@ -12,27 +12,23 @@ window.onload = function() {
 	let scrollEventTimeout = setTimeout(() => {}, 0);
 	let scrollEventCount = 0;
 	//when the viewport is resized scroll the current slide into view.
-	window.onresize = function() {
+	window.onresize = function () {
 		currentSlide.scrollIntoView();
 	};
 
 	document.onwheel = e => {
 		scrollEventCount++;
 		resetScrollEventCount();
-		console.log(scrollEventCount);
 		if (scrollEventCount > 60 || !finishedScrolling) {
 			resetFinishedScrolling();
 			return;
 		}
-		if (e.deltaY === 1 || e.deltaY === -1) {
-			//deltaY describes the movement of the scroll action on the y axis,
-			//if it's a positive value the user is scrolling down,
-			//if it's a negative value the user is scrolling up.
-			if (e.deltaY === 1 && allowSlideAction) goToNextSlide();
-			else if (e.deltaY === -1 && allowSlideAction) goToPreviousSlide();
-		} else {
-			return;
-		}
+
+		//deltaY describes the movement of the scroll action on the y axis,
+		//if it's a positive value the user is scrolling down,
+		//if it's a negative value the user is scrolling up.
+		if (e.deltaY > 0 && allowSlideAction) goToNextSlide();
+		else if (e.deltaY < 0 && allowSlideAction) goToPreviousSlide();
 	};
 
 	let touchStart;
@@ -56,7 +52,7 @@ window.onload = function() {
 				case 38:
 					goToPreviousSlide();
 					break;
-				//Down key
+					//Down key
 				case 40:
 					goToNextSlide();
 					break;
@@ -68,13 +64,11 @@ window.onload = function() {
 		if (allowSlideAction) {
 			slideTimeout();
 			if (currentSlide.nextSibling !== null) {
-				console.log("Sliding ", finishedScrolling);
 				currentSlide.classList.remove("active");
 				currentSlide.nextSibling.classList.add("active");
 				currentSlide = document.querySelector(".slide.active");
 				currentSlide.scrollIntoView();
-			} else {
-			}
+			} else {}
 		}
 	}
 
@@ -86,8 +80,7 @@ window.onload = function() {
 				currentSlide.previousSibling.classList.add("active");
 				currentSlide = document.querySelector(".slide.active");
 				currentSlide.scrollIntoView();
-			} else {
-			}
+			} else {}
 		}
 	}
 
@@ -109,6 +102,7 @@ window.onload = function() {
 			allowArrowAction = true;
 		}, transitionTime);
 	}
+
 	function resetFinishedScrolling() {
 		allowSlideAction = false;
 		finishedScrolling = false;
@@ -116,9 +110,9 @@ window.onload = function() {
 		finishedScrollTimeout = setTimeout(() => {
 			allowSlideAction = true;
 			finishedScrolling = true;
-			console.log("resetting finished scrolling");
 		}, 40);
 	}
+
 	function resetScrollEventCount() {
 		clearTimeout(scrollEventTimeout);
 		scrollEventTimeout = setTimeout(() => {
