@@ -1,0 +1,44 @@
+.dot-container {
+    width: 30px;
+    top: 50%;
+}
+
+.dot {
+    background-color: rgba(255, 255, 255, .5);
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+    box-sizing: content-box;
+
+}
+
+.dot:hover {
+    animation: shadow-pulse 1s infinite;
+    transform: scale(1.2);
+}
+
+.dot.active {
+    background-color: rgba(0, 0, 0, 0);
+    border: 2px #FF0055 solid;
+    animation: shadow-pulse-juicy .5s 1;
+
+}
+
+@keyframes shadow-pulse {
+    0% {
+        box-shadow: 0 0 0 0px rgba(0, 0, 0, 0.2);
+    }
+
+    100% {
+        box-shadow: 0 0 0 10px rgba(0, 0, 0, 0);
+    }
+}
+
+@keyframes shadow-pulse-juicy {
+    0% {
+        box-shadow: 0 0 0 0px rgba(255, 0, 85, 0.4);
+    }
+
+    100% {
+        box-shadow: 0 0 0 10px rgba(255, 0, 85, 0);
+    }
+}

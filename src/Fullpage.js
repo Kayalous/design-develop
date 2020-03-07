@@ -7,9 +7,9 @@ class Fullpage extends React.Component {
     return (
       <div
         id="fullpage"
-        className="w-screen h-screen overflow-hidden min-w-64 min-h-64"
+        className="w-screen h-screen overflow-hidden min-w-64 min-h-64 relative"
       >
-        {this.props.children}
+        {this.props.children}{" "}
       </div>
     );
   }

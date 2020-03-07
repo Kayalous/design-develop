@@ -4,6 +4,7 @@ class Slide extends React.Component {
   render() {
     return (
       <div
+        id={this.props.id}
         className={`slide${
           this.props.active ? " active" : ""
         } flex justify-center min-w-full min-h-full ${
@@ -11,7 +12,7 @@ class Slide extends React.Component {
         } align-items-center`}
       >
         {" "}
-        {this.props.children}
+        {this.props.children}{" "}
       </div>
     );
   }

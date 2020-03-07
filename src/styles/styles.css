@@ -1,3 +1,7 @@
 * {
     font-family: 'Poppins', sans-serif;
 }
+
+.w-thin {
+    width: 1px !important;
+}
