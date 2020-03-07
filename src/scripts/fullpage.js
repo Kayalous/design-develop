@@ -166,12 +166,14 @@ window.onload = function () {
 	let dots = document.querySelectorAll('.dot');
 	for (let i = 0; i < dots.length; i++) {
 		dots[i].onclick = () => {
-			currentSlide.classList.remove('active');
-			currentDot.classList.remove('active');
-			slides[i].classList.add('active');
-			dots[i].classList.add('active');
-			currentSlide = document.querySelector(".slide.active");
-			currentDot = document.querySelector(".dot.active");
+			if (allowSlideAction) {
+				currentSlide.classList.remove('active');
+				currentDot.classList.remove('active');
+				slides[i].classList.add('active');
+				dots[i].classList.add('active');
+				currentSlide = document.querySelector(".slide.active");
+				currentDot = document.querySelector(".dot.active");
+			}
 		}
 	}
 };
