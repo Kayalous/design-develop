@@ -11,6 +11,14 @@ video {
     bottom: 0;
 }
 
+.header-image {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    right: 0;
+    bottom: 0;
+}
+
 .overlay {
     position: absolute;
     width: 100%;

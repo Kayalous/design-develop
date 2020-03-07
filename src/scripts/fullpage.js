@@ -15,6 +15,14 @@ window.onload = function () {
 	//making sure the events arent double firing on devices that have a smooth scroll
 	//such as trackpads
 	let scrollEventCount = 0;
+
+	//Scroll the first active slide into view
+	//mostly for dev purposes
+	currentSlide.scrollIntoView();
+
+
+
+
 	//when the viewport is resized scroll the current slide into view.
 	window.onresize = function () {
 		currentSlide.scrollIntoView();
@@ -91,6 +99,7 @@ window.onload = function () {
 						window.location.href = "#" + currentSlide.id;
 						//scroll into view
 						currentSlide.scrollIntoView();
+						fadeChildrenIn(currentSlide)
 					} else {}
 		}
 	}
@@ -105,20 +114,16 @@ window.onload = function () {
 					if (currentSlide.previousSibling.classList.contains('slide')) {
 						currentSlide.classList.remove("active");
 						currentDot.classList.remove('active');
-
 						currentDot.previousSibling.classList.add("active");
 						currentSlide.previousSibling.classList.add("active");
-
 						currentSlide = document.querySelector(".slide.active");
 						currentDot = document.querySelector(".dot.active");
-
 						//Fixing a bug in some browsers where no scrolling would happen
 						window.location.href = "#";
 						window.location.href = "#" + currentSlide.id;
 						//scroll into view
 						currentSlide.scrollIntoView();
-
-
+						fadeChildrenIn(currentSlide)
 					} else {}
 		}
 	}
@@ -173,6 +178,30 @@ window.onload = function () {
 				dots[i].classList.add('active');
 				currentSlide = document.querySelector(".slide.active");
 				currentDot = document.querySelector(".dot.active");
+				fadeChildrenIn(currentSlide)
+			}
+		}
+	}
+
+	//fade the given element's children in using Animate.css
+	function fadeChildrenIn(currentSlide) {
+		let currentSlideContentContainer = currentSlide.getElementsByClassName('slide-content-container');
+		if (currentSlideContentContainer.length > 0) {
+			let slideAnimatedContent = currentSlideContentContainer[0].getElementsByClassName('animated');
+			let delay = 0.4;
+			for (let i = 0; i < slideAnimatedContent.length; i++) {
+				//reseting elements with each slide
+				slideAnimatedContent[i].classList.remove('fadeInUp')
+				slideAnimatedContent[i].classList.add('hidden')
+				slideAnimatedContent[i].style.animationDelay = `0s`
+				//adding animation
+				slideAnimatedContent[i].style.animationDelay = `${delay}s`
+				delay += 0.35;
+				setTimeout(() => {
+					slideAnimatedContent[i].classList.remove('hidden')
+					slideAnimatedContent[i].classList.add('fadeInUp')
+				}, 25);
+
 			}
 		}
 	}
