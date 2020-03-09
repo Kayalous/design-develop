@@ -18,8 +18,12 @@ class Navbar extends React.Component {
       <Router>
         <header className="bg-gray-100 sm:bg-transparent sm:flex sm:justify-between absolute w-full z-50">
           <div className="flex items-center justify-between px-5 py-3 overflow-hidden">
-            <Link to="/">
+            <Link to="/" className="flex items-center">
               <img className="h-8" src={Logo} alt="Design Develop" />
+              <h2 className="logo-text flex flex-col leading-none ml-2 text-gray-700 sm:text-white duration-200 transition-all sm:hover:text-gray-200">
+                <span className="font-black">DESIGN</span>
+                <span className="font-black">DEVELOP</span>
+              </h2>
             </Link>{" "}
             <div className="sm:hidden">
               <button

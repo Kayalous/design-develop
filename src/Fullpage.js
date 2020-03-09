@@ -1,12 +1,18 @@
-import React, { useEffect } from "react";
+import React from "react";
 import ReactDOM from "react-dom";
 
 import "./styles/fullpage.css";
-// import "./scripts/fullpage.js";
+import Loader from "./Loader";
 
 class Fullpage extends React.Component {
   constructor(props) {
     super(props);
+    this.state = {
+      isLoaded: undefined
+    };
+  }
+  componentWillMount() {
+    this.setState({ isLoaded: true });
   }
   componentDidMount() {
     let allowSlideAction = true;
@@ -202,12 +208,18 @@ class Fullpage extends React.Component {
   }
   render() {
     return (
-      <div
-        id="fullpage"
-        className="w-screen h-screen overflow-hidden min-w-64 min-h-64 relative"
-      >
-        {this.props.children}{" "}
-      </div>
+      <>
+        {this.state.isLoaded ? (
+          <div
+            id="fullpage"
+            className="w-screen h-screen overflow-hidden min-w-64 min-h-64 relative"
+          >
+            {this.props.children}{" "}
+          </div>
+        ) : (
+          <Loader />
+        )}
+      </>
     );
   }
 }
