@@ -9,7 +9,9 @@ class Slide extends React.Component {
           this.props.active ? " active" : ""
         } flex justify-center min-w-full min-h-full ${
           this.props.color
-        } align-items-center`}
+        } align-items-center
+        ${this.props.full ? "h-screen" : ""}
+        `}
       >
         {" "}
         {this.props.children}{" "}
