@@ -21,6 +21,9 @@ function Home() {
     }
   }));
   const [isLoaded, setIsLoaded] = React.useState(undefined);
+  const setLoader = () => {
+    setIsLoaded(true);
+  };
   return (
     <>
       {!isLoaded ? <Loader /> : ""}
@@ -35,7 +38,7 @@ function Home() {
         <Navdots springParams={props.xy}> </Navdots>{" "}
         <Fullpage>
           <Slide id="1" color="bg-red-200" active>
-            <div className="relative flex">
+            <div className="relative flex w-full">
               <Overlay>
                 <animated.div
                   className="z-10 container px-3 sm:px-0 sm:pt-16 pt-24 mx-auto"
@@ -52,9 +55,7 @@ function Home() {
                 </animated.div>{" "}
               </Overlay>{" "}
               <video
-                onCanPlayThrough={useEffect(() => {
-                  setIsLoaded(true);
-                })}
+                onCanPlayThrough={setLoader}
                 autoPlay
                 muted
                 loop
