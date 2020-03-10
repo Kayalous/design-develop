@@ -1,6 +1,4 @@
-import React, {
-  useEffect
-} from "react";
+import React, { useEffect } from "react";
 import Slide from "./Slide";
 import Loader from "./Loader";
 
@@ -11,20 +9,13 @@ function Contact() {
       setIsLoaded(true);
     }, 500);
   });
-  return ( <
-    >
-    {
-      isLoaded ? ( <
-        Slide full id = "1"
-        color = "bg-green-300" >
-        <
-        h1 className = "my-auto text-6xl text-green-800" > Contact < /h1> < /
-        Slide >
-      ) : ( <
-        Loader / >
-      )
-    } <
-    />
+  return (
+    <>
+      {!isLoaded ? <Loader /> : ""}
+      <Slide full id="1" color="bg-green-300">
+        <h1 className="my-auto text-6xl text-green-800"> Contact </h1>{" "}
+      </Slide>
+    </>
   );
 }
 

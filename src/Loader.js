@@ -9,7 +9,7 @@ function Loader() {
     colors: ["#1A264E", "#FF0055"]
   };
   return (
-    <div className="min-w-screen min-h-screen flex items-center justify-center">
+    <div className="w-screen h-screen flex items-center bg-white justify-center z-50 absolute">
       <DyingLightLoader {...loaderProps} />
     </div>
   );
