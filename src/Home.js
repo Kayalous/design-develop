@@ -52,7 +52,7 @@ function Home() {
                 </animated.div>{" "}
               </Overlay>{" "}
               <video
-                onLoadedData={useEffect(() => {
+                onCanPlayThrough={useEffect(() => {
                   setIsLoaded(true);
                 })}
                 autoPlay

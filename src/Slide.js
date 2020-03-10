@@ -10,13 +10,12 @@ class Slide extends React.Component {
       className = {
         `slide${
           this.props.active ? " active" : ""
-        } flex justify-center min-w-full min-h-full ${
+        } flex justify-center min-w-screen min-h-full ${
           this.props.color
         } align-items-center
         ${this.props.full ? "h-screen" : ""}
         `
-      } >
-      {
+      } > {
         " "
       } {
         this.props.children
