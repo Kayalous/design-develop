@@ -2,24 +2,33 @@ import React from "react";
 
 class Overlay extends React.Component {
   render() {
-    return (
-      <div className="flex overlay w-screen h-full">
-        {" "}
-        {this.props.children}{" "}
-        {this.props.lines ? (
-          <>
-            <div className="absolute w-full h-full flex items-center justify-around py-12">
-              <div className="bg-gray-500 h-full w-thin hidden sm:block"> </div>{" "}
-              <div className="bg-gray-500 h-full w-thin hidden lg:block"> </div>{" "}
-              <div className="bg-gray-500 h-full w-thin hidden sm:block"> </div>{" "}
-              <div className="bg-gray-500 h-full w-thin hidden lg:block"> </div>{" "}
-              <div className="bg-gray-500 h-full w-thin hidden sm:block"> </div>{" "}
-            </div>{" "}
-          </>
-        ) : (
-          <></>
-        )}{" "}
-      </div>
+    return ( <
+      div className = "flex overlay w-screen h-full z-30" > {
+        " "
+      } {
+        this.props.children
+      } {
+        " "
+      } {
+        this.props.lines ? ( <
+          >
+          <
+          div className = "absolute w-full h-full flex items-center justify-around py-12" >
+          <
+          div className = "bg-gray-500 h-full w-thin hidden sm:block" > < /div>{" "} <
+          div className = "bg-gray-500 h-full w-thin hidden lg:block" > < /div>{" "} <
+          div className = "bg-gray-500 h-full w-thin hidden sm:block" > < /div>{" "} <
+          div className = "bg-gray-500 h-full w-thin hidden lg:block" > < /div>{" "} <
+          div className = "bg-gray-500 h-full w-thin hidden sm:block" > < /div>{" "} <
+          /div>{" "} <
+          />
+        ) : ( <
+          > < />
+        )
+      } {
+        " "
+      } <
+      /div>
     );
   }
 }

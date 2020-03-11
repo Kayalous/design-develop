@@ -1,8 +1,11 @@
 import React from "react";
 import "./styles/navdots.css";
-import { useSpring, animated } from "react-spring";
+import {
+  useSpring,
+  animated
+} from "react-spring";
 
-const trans = (x, y) => `translate3d(${x / 150}px,${y / 150}px,0)`;
+const trans = (x, y) => `translate3d(${x / 75}px,${y / 75}px,0)`;
 
 class Navdots extends React.Component {
   constructor(props) {
@@ -21,36 +24,49 @@ class Navdots extends React.Component {
   }
   render() {
     const dots = ["1", "2", "3", "4"];
-    return (
-      <animated.div
-        ref={divElement => {
+    return ( <
+      animated.div ref = {
+        divElement => {
           this.divElement = divElement;
-        }}
-        className="dot-container flex flex-col items-center justify-center my-auto absolute right-0 mr-5 py-4 z-20"
-        style={{
+        }
+      }
+      className = "dot-container flex flex-col items-center justify-center my-auto absolute right-0 mr-5 py-4 z-50"
+      style = {
+        {
           marginTop: -this.state.height / 2 + "px",
           transform: this.props.springParams.interpolate(trans)
-        }}
-      >
-        {dots.map((value, key) => {
+        }
+      } > {
+        dots.map((value, key) => {
           if (value === "1")
-            return (
-              <a
-                href={"#" + value}
-                key={key}
-                className="dot w-8 h-8 sm:w-4 sm:h-4 my-3 sm:my-2 rounded-full active"
-              ></a>
+            return ( <
+              a href = {
+                "#" + value
+              }
+              key = {
+                key
+              }
+              className = "dot w-8 h-8 sm:w-4 sm:h-4 my-3 sm:my-2 rounded-full active" >
+              <
+              /a>
             );
           else
-            return (
-              <a
-                href={"#" + value}
-                key={key}
-                className="dot w-8 h-8 sm:w-4 sm:h-4 my-3 sm:my-2 rounded-full"
-              ></a>
+            return ( <
+              a href = {
+                "#" + value
+              }
+              key = {
+                key
+              }
+              className = "dot w-8 h-8 sm:w-4 sm:h-4 my-3 sm:my-2 rounded-full" >
+              <
+              /a>
             );
-        })}{" "}
-      </animated.div>
+        })
+      } {
+        " "
+      } <
+      /animated.div>
     );
   }
 }

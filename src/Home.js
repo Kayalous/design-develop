@@ -5,11 +5,12 @@ import Fullpage from "./Fullpage";
 import Slide from "./Slide";
 import IntroVid from "./resources/videos/intro.mp4";
 import gamhraHeader from "./resources/images/project-images/gamhra-header.jpg";
+import "./styles/home.css";
 import { useSpring, animated } from "react-spring";
 import Loader from "./Loader";
 
 const calc = (x, y) => [x - window.innerWidth / 2, y - window.innerHeight / 2];
-const trans1 = (x, y) => `translate3d(${x / 50}px,${y / 50}px,0)`;
+const trans1 = (x, y) => `translate3d(${x / 100}px,${y / 100}px,0)`;
 
 function Home() {
   const [props, set] = useSpring(() => ({
@@ -55,6 +56,7 @@ function Home() {
                 </animated.div>{" "}
               </Overlay>{" "}
               <video
+                className="header-img object-cover top-0 left-0 scale-110"
                 onCanPlayThrough={setLoader}
                 autoPlay
                 muted
@@ -64,15 +66,10 @@ function Home() {
             </div>{" "}
           </Slide>
           <Slide id="2" color="bg-blue-300">
-            <div className="relative flex">
+            <div className="relative flex items-center justify-center w-full">
               <Overlay>
-                <div className="z-10 container flex px-10">
-                  <animated.div
-                    className="w-full sm:w-1/2 h-full flex items-center flex-col sm:items-start justify-center slide-content-container"
-                    style={{
-                      transform: props.xy.interpolate(trans1)
-                    }}
-                  >
+                <div className="z-10 container flex pl-4 pr-16 sm:px-10">
+                  <animated.div className="w-full sm:w-1/2 h-full flex items-center flex-col sm:items-start justify-center slide-content-container">
                     <h1 className="text-6xl text-center sm:text-left text-white font-bold animated">
                       Gamhra{" "}
                     </h1>{" "}
@@ -93,10 +90,13 @@ function Home() {
                   </animated.div>{" "}
                 </div>{" "}
               </Overlay>{" "}
-              <img
-                className="h-full w-full object-cover top-0 left-0"
+              <animated.img
+                className="header-img object-cover top-0 left-0 scale-110"
                 src={gamhraHeader}
                 alt="Gamhra image"
+                style={{
+                  transform: props.xy.interpolate(trans1)
+                }}
               />
             </div>{" "}
           </Slide>

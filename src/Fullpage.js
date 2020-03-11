@@ -32,6 +32,7 @@ class Fullpage extends React.Component {
         slideTimeout();
         //I have no idea why this bug happens. Sometimes React renders a " " value at the end or the begining
         //of the slide component and this is the fastest way I could mitigate that particular bug
+
         if (currentSlide.nextSibling)
           if (currentSlide.nextSibling.classList)
             if (currentSlide.nextSibling.classList.contains("slide")) {

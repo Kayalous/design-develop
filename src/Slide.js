@@ -8,7 +8,7 @@ class Slide extends React.Component {
         this.props.id
       }
       className = {
-        `slide${
+        `slide overflow-hidden${
           this.props.active ? " active" : ""
         } flex justify-center min-w-screen min-h-full ${
           this.props.color
