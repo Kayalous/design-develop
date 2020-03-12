@@ -174,7 +174,7 @@ class Fullpage extends React.Component {
 			}, 50);
 		}
 
-		let dots = node.querySelectorAll(".dot");
+		let dots = document.querySelectorAll(".dot");
 		for (let i = 0; i < dots.length; i++) {
 			dots[i].onclick = () => {
 				if (allowSlideAction) {
