@@ -30,7 +30,6 @@ function Home() {
     <>
       {!isLoaded ? <Loader /> : ""}
       <div
-        tabindex="0"
         className="home"
         onMouseMove={({ clientX: x, clientY: y }) =>
           set({

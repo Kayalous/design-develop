@@ -5,3 +5,8 @@
 .w-thin {
     width: 1px !important;
 }
+
+body {
+    overscroll-behavior: none;
+
+}
