@@ -1,0 +1,11 @@
+.project-card:hover .overlay {
+	opacity: 1;
+}
+.project-name {
+	transition: all 0.4s ease-in-out;
+	bottom: -100%;
+}
+.project-card:hover .project-name {
+	transition: all 0.2s ease-in-out;
+	bottom: 0%;
+}
